@@ -14,8 +14,5 @@ module.exports = function(config) {
 
   return {
     questions: require("./questions")(knex)
-    // channels: require("./channels")(knex),
-    // channelMessages: require("./channelMessages")(knex),
-    // userMessages: require("./userMessages")(knex)
   };
 };

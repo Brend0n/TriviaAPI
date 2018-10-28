@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true })); // enables parsing of applicati
  ******************************** ROUTES ********************************
  ****************************************************************************
  */
-app.get("/hello", (req, res) => res.send("My WORrLD!!"));
+app.get("/", (req, res) => res.sendFile(__dirname + "/public/index.html"));
 
 const questions = require("./db/questions/list");
 app.get("/questions", (req, res) =>
