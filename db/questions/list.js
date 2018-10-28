@@ -1,12 +1,12 @@
-// const Knex = require("knex");
-// const knex = Knex({
-//   client: "pg",
-//   port: 5432,
-//   connection: {
-//     host: "127.0.0.1",
-//     database: "trivia"
-//   }
-// });
+const Knex = require("knex");
+const knex = Knex({
+  client: "pg",
+  port: 5432,
+  connection: {
+    host: "127.0.0.1",
+    database: "trivia"
+  }
+});
 
 let getList = function() {
   return knex.select().from("questions");
@@ -18,10 +18,7 @@ let getRandom = function() {
     .count()
     .from("questions")
     .then(function(count) {
-      console.log("count", count[0].count);
-      console.log("count", count[0].count);
       const id = Math.floor(Math.random() * count[0].count) + 1;
-      console.log("id", id);
       return knex
         .select()
         .from("questions")
@@ -33,7 +30,29 @@ let getRandom = function() {
   // });
 };
 
+let createQuestion = function(question) {
+  return knex("questions")
+    .insert({
+      question: question.question,
+      answer: question.answer
+    })
+    .then(() => {
+      return knex
+        .select()
+        .from("questions")
+        .where("question", question.question);
+    });
+};
+
+let deleteQuestion = function(question) {
+  return knex("questions")
+    .where(question)
+    .del();
+};
+
 module.exports = {
   getList,
-  getRandom
+  getRandom,
+  createQuestion,
+  deleteQuestion
 };

@@ -4,7 +4,7 @@
   "description": "Creation of a Question/answer API",
   "main": "index.js",
   "scripts": {
-    "test": "node tests/initialize.js && mocha tests/test.js && yarn lint",
+    "test": "mocha test/spec.js",
     "lint": "eslint --fix ./**/*.js",
     "start": "node index.js",
     "migrate": "knex migrate:latest --knexfile db/knexfile.js",
@@ -12,12 +12,16 @@
     "seed": "knex seed:run --knexfile db/knexfile.js ",
     "precommit": "pretty-quick --staged"
   },
-  "author": "RP-3 <sarith21@gmail.com> (http://suchisthepowerofjs.com/)",
+  "author": "Brendon <brendon.bouzas@gmail.com>",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
     "express": "^4.16.4",
     "knex": "^0.15.2",
+    "mocha": "^5.2.0",
     "pg": "^7.6.0"
   }
 }

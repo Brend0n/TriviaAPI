@@ -1,3 +1,5 @@
+const Knex = require("knex");
+
 const Question = function(dbQuestion) {
   this.id = dbQuestion.id;
   this.question = dbQuestion.question;
@@ -16,9 +18,18 @@ Channel.prototype.serialize = function() {
   };
 };
 
-module.exports = knex => {
+module.exports = function() {
+  const knex = Knex({
+    client: "pg",
+    port: 5432,
+    connection: {
+      host: "127.0.0.1",
+      database: "trivia"
+    }
+  });
+
   return {
-    // create: require("./create")(knex, Question),
     list: require("./list")(knex, Question)
+    // create: require("./create")(knex, Question),};
   };
 };
