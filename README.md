@@ -109,7 +109,7 @@ This document provide guidelines and example of use for this API
  Install PostGres Database:
        
     
-      echo "CREATE DATABASE clack;" | psql
+      echo "CREATE DATABASE trivia;" | psql
   
     
 To install dependencies:
