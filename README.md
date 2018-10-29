@@ -87,7 +87,7 @@ This document provide guidelines and example of use for this API
       ```bash
       {
           "question": "In hockey, how many players from each team are allowed to be on the ice at the same time?", 
-          "answer":   "Environment"},
+          "answer":   "Six"},
       }
      ```
       
@@ -96,8 +96,8 @@ This document provide guidelines and example of use for this API
         [
           {
               "id": 13,
-              "question": "What is your name?",
-              "answer": "John",
+              "question": "In hockey, how many players from each team are allowed to be on the ice at the same time?",
+              "answer": "Six",
               "created_at": "2018-10-28T15:02:36.278Z",
               "updated_at": "2018-10-28T15:02:36.278Z"
           }
@@ -108,33 +108,33 @@ This document provide guidelines and example of use for this API
        
  Install PostGres Database:
        
-    ```bash
+    
       echo "CREATE DATABASE clack;" | psql
-    ```
+  
     
 To install dependencies:
 
-    ```bash
+    
         yarn
-    ```
+   
 
 To run migrations and set up the database:
 
-    ```bash
+    
         yarn migrate
-    ```
+    
 
 To roll back migrations
 
-    ```bash
+   
         yarn rollback
-    ```
+    
 
 To run tests:
 
-    ```bash
+   
         yarn test
-    ```
+   
 
  
       
